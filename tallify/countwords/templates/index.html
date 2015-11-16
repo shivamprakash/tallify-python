@@ -2,7 +2,7 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>Calm breeze login screen</title>
+    <title>TALLIFY</title>
     
     
     
@@ -18,13 +18,13 @@
   <body>
 
     <div class="wrapper">
-		<nav id="main-menu">
+		<!--<nav id="main-menu">
 			<ul class="nav-bar">
 				<li class="nav-button-products"><a href="#">Stored Analysis</a></li>
 				<li class="nav-button-products"><a href="#">Stop Words</a></li>
 				<li class="nav-button-products"><a href="#">Products</a></li>
 			</ul>
-		</nav>
+		</nav>-->
 		<div class="container">
 			<h1>Tallify</h1>
 			
@@ -33,6 +33,10 @@
 				{{ form.wordcounttext }}
 				{{ form.stopwords }}
 				<button type="submit" id="submit-button">Submit</button>
+				<br/> <br/>
+				<div id="results">
+					{{ output | safe}}
+				</div>
 			</form>
 		</div>
 	<div></div>
