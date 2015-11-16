@@ -13,10 +13,10 @@ def word_count(request):
             print 'valid form'
             stopwords = getStopwords(stopwords)
             output =  wordCount(words , stopwords)
-            responseHTML = '<p> Results </p> <br/>'
+            responseHTML = '<div style="border:1px solid white; color:#FFF"><h3> <strong>Results</strong> </h3>'
             for key in output:
                 responseHTML += '<p>' + key + ':' + str(output[key]) + "</p>"
-            
+            responseHTML += '</div>'
             template = loader.get_template('index.html')
             context = RequestContext(request, {
                 'form' : form,
