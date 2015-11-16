@@ -10,13 +10,17 @@ def word_count(request):
         if form.is_valid():
             words = form.cleaned_data["wordcounttext"]
             stopwords = form.cleaned_data["stopwords"]
-            print 'valid form'
-            stopwords = getStopwords(stopwords)
+            print "stopwords"
+            print stopwords
+            if stopwords == "":
+                stopwords = getDefaultStopWords()
+            else:
+                stopwords = getStopwords(stopwords)
             output =  wordCount(words , stopwords)
             responseHTML = '<p> Results </p> <br/>'
             for key in output:
                 responseHTML += '<p>' + key + ':' + str(output[key]) + "</p>"
-            
+
             template = loader.get_template('index.html')
             context = RequestContext(request, {
                 'form' : form,
@@ -24,7 +28,7 @@ def word_count(request):
                 'subpath' : settings.SUBPATH
             })
             return HttpResponse(template.render(context))
-            
+
     else:
         form = WordCountForm()
 

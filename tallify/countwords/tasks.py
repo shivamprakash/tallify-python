@@ -1,5 +1,5 @@
 from collections import defaultdict
-
+from nltk.corpus import stopwords
 
 def wordCount(words,stopwords):
     d = defaultdict(int)
@@ -14,5 +14,4 @@ def getStopwords(stopcsv):
     return stopwords
 
 def getDefaultStopWords():
-    stopcsv = "by,at,of,be,etc"
-    return getStopwords(stopcsv)
+    return stopwords.words('english')
