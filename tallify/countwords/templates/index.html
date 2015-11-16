@@ -7,6 +7,7 @@
     
     
     	{% load staticfiles %}
+				
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     
@@ -27,9 +28,10 @@
 		<div class="container">
 			<h1>Tallify</h1>
 			
-			<form class="form" action="">
-				<input type="text" placeholder="Enter your words">
-				<input type="text" placeholder="Stop words, use comma to spe">
+			<form class="form" action="{{ app_path }}" method="POST">
+				{% csrf_token %}
+				{{ form.wordcounttext }}
+				{{ form.stopwords }}
 				<button type="submit" id="submit-button">Submit</button>
 			</form>
 		</div>
