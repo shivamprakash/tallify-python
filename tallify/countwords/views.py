@@ -1,11 +1,16 @@
-from login.forms import *
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout
-from django.views.decorators.csrf import csrf_protect
-from django.shortcuts import render_to_response
-from django.http import HttpResponseRedirect
-from django.template import RequestContext
+from django.shortcuts import render
+from django.template import Context, Template
+from django.http import HttpResponse
+from forms import WordCountForm
 
-# Create your views here.
-def index(request):
-	return render_to_response('index.html')
+def word_count(request):
+    if request.method == 'POST':
+        form = WordCountForm(request.POST)
+        if form.is_valid():
+            print 'valid form'
+    else:
+        form = WordCountForm()
+
+    template = Template("Test template. {{form}}")
+    context = Context("TEST FORM")
+    return HttpResponse(template.render(context))
