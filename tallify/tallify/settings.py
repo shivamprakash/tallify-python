@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'login',
+    'countwords'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -82,7 +83,7 @@ DATABASES = {
     }
 }
 
-
+SUBPATH = '/tallify'
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 

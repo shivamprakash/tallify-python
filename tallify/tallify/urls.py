@@ -18,6 +18,7 @@ from django.contrib import admin
 from login.views import *
 from countwords import views
 
+
 urlpatterns = [
     #the ones related to the login app
     url(r'^logout/$', logout_page),
