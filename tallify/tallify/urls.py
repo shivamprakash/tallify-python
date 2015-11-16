@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from login.views import *
+from countwords.views import *
 
 urlpatterns = [
     #the ones related to the login app
@@ -24,7 +25,8 @@ urlpatterns = [
     url(r'^register/$', register),
     url(r'^register/success/$', register_success),
     url(r'^home/$', home),
-
+    url(r'^$', index),
+    
     #admin
 
     url(r'^admin/', include(admin.site.urls)),
